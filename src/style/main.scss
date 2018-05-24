@@ -13,9 +13,10 @@ input {
   margin-right: 10px;
 }
 
-.tasks h3, .tasks p {
+.notes h3, .notes p, {
   margin: 10px 0 5px 0;
   width: 100px;
+  display: inline-block;
 }
 
 .notes h3 {
@@ -23,7 +24,14 @@ input {
 }
 
 .notes p {
-  padding-left: 20px;
   font-style: italic;
   font-family: 'Times New Roman', Times, serif;
+}
+
+.notes li {
+  width: 300px;
+}
+
+.notes {
+  display: block;
 }
