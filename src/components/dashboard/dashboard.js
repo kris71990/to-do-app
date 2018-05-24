@@ -1,7 +1,7 @@
 import React from 'react';
-import NoteForm from './note-form';
-import NoteList from './note-list';
-import autoBind from '../utils/index';
+import NoteForm from '../note-form/note-form';
+import NoteList from '../note-list/note-list';
+import autoBind from '../../utils/index';
 
 export default class Dashboard extends React.Component {
   constructor(props) {

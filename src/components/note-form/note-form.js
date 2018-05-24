@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'uuid';
-import autoBind from '../utils/index';
+import autoBind from '../../utils/index';
 
 export default class NoteForm extends React.Component {
   constructor(props) {

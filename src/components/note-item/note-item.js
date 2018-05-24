@@ -1,5 +1,5 @@
 import React from 'react';
-import autoBind from '../utils/index';
+import autoBind from '../../utils/index';
 
 export default class NoteItem extends React.Component {
   constructor(props) {
@@ -14,11 +14,11 @@ export default class NoteItem extends React.Component {
   render() {
     // const { data } = this.props.data;
     return (
-      <li key={this.props.index}>
+      <div key={this.props.index}>
         <h3>{this.props.index + 1} - {this.props.data.title}</h3>
         <p>{this.props.data.content}</p>
-        <button onClick={this.handleDelete}>Delete item</button>
-      </li>
+        <button onClick={this.handleDelete}>Delete</button>
+      </div>
     );
   }
 }
