@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 import autoBind from '../utils/index';
 
 export default class NoteForm extends React.Component {
@@ -8,6 +9,7 @@ export default class NoteForm extends React.Component {
     this.state = {
       title: '',
       content: '',
+      id: '',
     };
 
     autoBind.call(this, NoteForm);
@@ -15,7 +17,9 @@ export default class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleAddNote(this.state);
+    this.setState(() => {
+      return { id: uuid() };
+    }, () => this.props.handleAddNote(this.state));
   }
 
   handleChange(event) {

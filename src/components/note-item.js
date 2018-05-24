@@ -12,14 +12,16 @@ export default class NoteItem extends React.Component {
   }
 
   render() {
+    // const { data } = this.props.data;
     return (
       <li key={this.props.index}>
-        <div className="tasks">
-          <h3>{this.props.index + 1} - {this.props.data.title}</h3>
-          <p>{this.props.data.content}</p>
-        </div>
+        <h3>{this.props.index + 1} - {this.props.data.title}</h3>
+        <p>{this.props.data.content}</p>
         <button onClick={this.handleDelete}>Delete item</button>
       </li>
     );
   }
 }
+
+// add modal component here, append note form inside modal component
+// show, hide, update, close, model

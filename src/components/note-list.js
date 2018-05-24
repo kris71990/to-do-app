@@ -25,3 +25,5 @@ export default class NoteList extends React.Component {
     );
   }
 }
+
+// put <NoteItem/> inside <li>
