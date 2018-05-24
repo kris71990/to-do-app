@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteItem from '../note-item/note-item';
 
-export default class NoteList extends React.Component {
+class NoteList extends React.Component {
   render() {
     return (
       <ul>
@@ -15,6 +15,7 @@ export default class NoteList extends React.Component {
               <NoteItem 
                 data={item} key={index} index={index}
                 handleRemoveNote={this.props.handleRemoveNote}
+                handleUpdateNote={this.props.handleUpdateNote}
               />
             </li>
           );
@@ -25,4 +26,4 @@ export default class NoteList extends React.Component {
   }
 }
 
-// put <NoteItem/> inside <li>
+export default NoteList;

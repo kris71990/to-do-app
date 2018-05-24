@@ -2,16 +2,17 @@ import React from 'react';
 import uuid from 'uuid';
 import autoBind from '../../utils/index';
 
+const emptyState = {
+  title: '',
+  content: '',
+  id: '',
+};
+
+
 export default class NoteForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      title: '',
-      content: '',
-      id: '',
-    };
-
+    this.state = this.props.note ? this.props.note : emptyState;
     autoBind.call(this, NoteForm);
   }
 
@@ -19,7 +20,7 @@ export default class NoteForm extends React.Component {
     e.preventDefault();
     this.setState(() => {
       return { id: uuid() };
-    }, () => this.props.handleAddNote(this.state));
+    }, () => this.props.handleComplete(this.state));
   }
 
   handleChange(event) {
@@ -30,6 +31,7 @@ export default class NoteForm extends React.Component {
   }
 
   render() {
+    const buttonText = this.props.data ? 'Update' : 'Create';
     return (
       <div className="form">
         <h1>Add a note</h1>
@@ -48,7 +50,7 @@ export default class NoteForm extends React.Component {
             value={this.state.text}
             onChange={this.handleChange}
           />
-          <button type="submit">Create Note</button>
+          <button type="submit">{buttonText}</button>
         </form>
       </div>
     );

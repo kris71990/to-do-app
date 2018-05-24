@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
+import Modal from '../modal/modal';
+import NoteForm from '../note-form/note-form';
 
-export default class NoteItem extends React.Component {
+class NoteItem extends React.Component {
   constructor(props) {
     super(props);
     autoBind.call(this, NoteItem);
@@ -12,16 +15,34 @@ export default class NoteItem extends React.Component {
   }
 
   render() {
-    // const { data } = this.props.data;
+    const { 
+      data, index, handleRemoveNote, handleUpdateNote,
+    } = this.props;
+    const showModal = () => handleRemoveNote({ ...data, editing: true });
+    const hideModal = () => handleUpdateNote({ ...data, editing: false });
+    const updateAndClose = (updatedNote) => {
+      handleUpdateNote({ ...updatedNote, editing: false });
+    };
+
     return (
-      <div key={this.props.index}>
-        <h3>{this.props.index + 1} - {this.props.data.title}</h3>
-        <p>{this.props.data.content}</p>
+      <div className="note-item">
+        <h3>{index + 1} - {data.title}</h3>
+        <p>{data.content}</p>
         <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={showModal}>Update</button>
+        <Modal show={data.editing} handleClose={hideModal}>
+          <h3>Editing {data.title}</h3>
+          <NoteForm handleComplete={updateAndClose} note={data}/>
+        </Modal>
       </div>
     );
   }
 }
 
-// add modal component here, append note form inside modal component
-// show, hide, update, close, model
+NoteItem.propTypes = {
+  data: PropTypes.object,
+  handleRemoveNote: PropTypes.func,
+  handleUpdateNote: PropTypes.func,
+};
+
+export default NoteItem;
