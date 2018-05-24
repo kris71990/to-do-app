@@ -13,6 +13,17 @@ input {
   margin-right: 10px;
 }
 
-input textarea {
-  float: left;
+.tasks h3, .tasks p {
+  margin: 10px 0 5px 0;
+  width: 100px;
+}
+
+.notes h3 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.notes p {
+  padding-left: 20px;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
 }

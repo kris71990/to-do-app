@@ -9,14 +9,14 @@ export default class NoteList extends React.Component {
         this.props.data.length > 0 ?
         <div>
           <h2>Notes</h2>
-          <ul>
+          <ul className="notes">
           { this.props.data.map((item, index) => {
               return (
-                <NoteItem data={item} key={index} 
+                <NoteItem data={item} key={index} index={index}
                 handleRemoveNote={this.props.handleRemoveNote}
                 />
               );
-            }, 0)}
+            })}
           </ul>
         </div>
       : undefined
