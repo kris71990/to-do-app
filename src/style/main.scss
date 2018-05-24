@@ -1,0 +1,29 @@
+$background-color: #6278B5;
+$font-color: #000000;
+
+html,body {
+  background: $background-color;
+}
+
+h1 {
+  color: $font-color;
+}
+
+input {
+  margin-right: 10px;
+}
+
+.tasks h3, .tasks p {
+  margin: 10px 0 5px 0;
+  width: 100px;
+}
+
+.notes h3 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.notes p {
+  padding-left: 20px;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+}
