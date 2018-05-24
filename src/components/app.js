@@ -11,7 +11,7 @@ export default class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <h1>To-Do List</h1>
+              <h1>To-Do App</h1>
               <nav>
                 <ul>
                   <li><Link to="/">Home</Link></li>

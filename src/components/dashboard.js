@@ -33,7 +33,7 @@ export default class Dashboard extends React.Component {
   }
 
   handleRemoveNote(note) {
-    if (note.title === '' || note.text === '') {
+    if (!note.id) {
       return this.setState({ error: true });
     }
 
@@ -57,6 +57,7 @@ export default class Dashboard extends React.Component {
         />
         <NoteList
           data={this.state.notes}
+          handleRemoveNote={this.handleRemoveNote}
         />
         { this.state.error && <h2 className="error">You must enter a title.</h2> }
       </section>

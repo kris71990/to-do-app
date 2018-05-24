@@ -6,16 +6,15 @@ export default class NoteList extends React.Component {
     return (
       <div>
         {
-        this.props.data ?
+        this.props.data.length > 0 ?
         <div>
           <h2>Notes</h2>
           <ul>
-            { this.props.data.map((item, index) => {
+          { this.props.data.map((item, index) => {
               return (
-                <li key={index}>
-                  <h4>{item.title}</h4>
-                  <p>{item.content}</p>
-                </li>
+                <NoteItem data={item} key={index} 
+                handleRemoveNote={this.props.handleRemoveNote}
+                />
               );
             }, 0)}
           </ul>
