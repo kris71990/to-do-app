@@ -1,5 +1,4 @@
 import React from 'react';
-import uuid from 'uuid';
 import NoteForm from './note-form';
 import NoteList from './note-list';
 import autoBind from '../utils/index';
@@ -17,12 +16,11 @@ export default class Dashboard extends React.Component {
   }
 
   handleAddNote(note) {
-    if (note.title === '' || note.text === '') {
+    if (note.title === '' || note.text === '' || note.id === '') {
       return this.setState({ error: true });
     }
 
     note.createdOn = new Date();
-    note.id = uuid();
 
     return this.setState((previousState) => {
       return {
