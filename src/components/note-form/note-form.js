@@ -1,12 +1,11 @@
 import React from 'react';
-import uuid from 'uuid';
+// import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 
 const emptyState = {
   title: '',
   content: '',
-  id: '',
 };
 
 class NoteForm extends React.Component {
@@ -18,9 +17,7 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState(() => {
-      return { id: uuid() };
-    }, () => this.props.handleComplete(this.state));
+    this.props.handleComplete(this.state);
   }
 
   handleChange(event) {

@@ -11,9 +11,7 @@ class NoteItem extends React.Component {
   }
 
   render() {
-    const { 
-      data, index, handleRemoveNote, handleUpdateNote, 
-    } = this.props;
+    const { data, handleRemoveNote, handleUpdateNote } = this.props;
     const showModal = () => handleUpdateNote({ ...data, editing: true });
     const hideModal = () => handleUpdateNote({ ...data, editing: false });
     const updateAndClose = (updatedNote) => {
