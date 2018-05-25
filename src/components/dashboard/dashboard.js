@@ -1,9 +1,11 @@
 import React from 'react';
-import NoteForm from './note-form';
-import NoteList from './note-list';
-import autoBind from '../utils/index';
+import uuid from 'uuid';
+import NoteForm from '../note-form/note-form';
+import NoteList from '../note-list/note-list';
+import autoBind from '../../utils/index';
+import './dashboard.scss';
 
-export default class Dashboard extends React.Component {
+class Dashboard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,7 +26,7 @@ export default class Dashboard extends React.Component {
 
     return this.setState((previousState) => {
       return {
-        notes: [...previousState.notes, note],
+        notes: [...previousState.notes, { ...note, id: uuid() }],
         error: null,
       };
     });
@@ -45,20 +47,31 @@ export default class Dashboard extends React.Component {
     });
   }
 
+  handleUpdateNote(noteToUpdate) {
+    return this.setState((previousState) => {
+      return {
+        notes: previousState.notes.map(note => 
+          (note.id === noteToUpdate.id ? noteToUpdate : note)),
+      };
+    });
+  }
+
   render() {
     return (
       <section className="dashboard">
-        <h1>To-Do Dashboard</h1>
+        <h2>Add Note</h2>
         <NoteForm
-          handleAddNote={this.handleAddNote} 
-          handleRemoveNote={this.handleRemoveNote}
+          handleComplete={this.handleAddNote} 
         />
         <NoteList
           data={this.state.notes}
           handleRemoveNote={this.handleRemoveNote}
+          handleUpdateNote={this.handleUpdateNote}
         />
         { this.state.error && <h2 className="error">You must enter a title.</h2> }
       </section>
     );
   }
 }
+
+export default Dashboard;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure as configureEnzyme, shallow as enzymeShallowMount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Dashboard from '../components/dashboard';
+import Dashboard from '../components/dashboard/dashboard';
 
 configureEnzyme({ adapter: new Adapter() });
 
@@ -21,21 +21,21 @@ describe('Dashboard testing', () => {
     expect(mountedDashboard.find('NoteForm')).toBeTruthy();
   });
 
-  // test('notes should be added correctly to internal state', () => {
-  //   const mountedDashboard = enzymeShallowMount(<Dashboard/>);
-  //   mountedDashboard.setState({
-  //     notes: [
-  //       {
-  //         title: 'Task',
-  //         content: 'test',
-  //       },
-  //       {
-  //         title: 'Task 2',
-  //         content: 'test 2',
-  //       },
-  //     ],
-  //   });
-  //   console.log(mountedDashboard.state.notes);
-  //   expect(mountedDashboard.find('NoteList').length).toEqual(2);
-  // });
+  test('notes should be added correctly to internal state', () => {
+    const mountedDashboard = enzymeShallowMount(<Dashboard/>);
+    mountedDashboard.setState({
+      notes: [
+        {
+          title: 'Task',
+          content: 'test',
+        },
+        {
+          title: 'Task 2',
+          content: 'test 2',
+        },
+      ],
+    });
+    expect(mountedDashboard.find('NoteList').props().data).toHaveLength(2);
+    expect(mountedDashboard.find('li')).toBeTruthy();
+  });
 });

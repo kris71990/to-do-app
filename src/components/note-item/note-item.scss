@@ -1,0 +1,27 @@
+.note-item button {
+  margin: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+.note-item button:focus {
+  outline: 0;
+}
+
+.note-item button:hover {
+  border: 1px solid black;
+}
+
+.note-item h3, p {
+  display: block;
+}
+
+.note-item {
+  width: 23%;
+  margin: 3px;
+  float: left;
+  background-color: #498E70;
+  border: 5px groove grey;
+}
+
