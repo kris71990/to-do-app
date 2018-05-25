@@ -16,7 +16,7 @@ class Modal extends React.Component {
   }
 }
 
-Modal.PropTypes = {
+Modal.propTypes = {
   show: PropTypes.bool,
   handleClose: PropTypes.func,
   children: PropTypes.node,

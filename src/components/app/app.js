@@ -4,7 +4,7 @@ import Dashboard from '../dashboard/dashboard';
 import Landing from '../landing/landing';
 import '../../style/main.scss';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="app">
@@ -35,3 +35,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;

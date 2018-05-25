@@ -13,7 +13,7 @@ class NoteList extends React.Component {
           return (
             <li key={item.id}>
               <NoteItem 
-                data={item} key={index} index={index}
+                data={item} key={index}
                 handleRemoveNote={this.props.handleRemoveNote}
                 handleUpdateNote={this.props.handleUpdateNote}
               />

@@ -10,15 +10,11 @@ class NoteItem extends React.Component {
     autoBind.call(this, NoteItem);
   }
 
-  handleDelete() {
-    this.props.handleRemoveNote(this.props.data);
-  }
-
   render() {
     const { 
-      data, index, handleRemoveNote, handleUpdateNote,
+      data, index, handleRemoveNote, handleUpdateNote, 
     } = this.props;
-    const showModal = () => handleRemoveNote({ ...data, editing: true });
+    const showModal = () => handleUpdateNote({ ...data, editing: true });
     const hideModal = () => handleUpdateNote({ ...data, editing: false });
     const updateAndClose = (updatedNote) => {
       handleUpdateNote({ ...updatedNote, editing: false });
@@ -26,9 +22,9 @@ class NoteItem extends React.Component {
 
     return (
       <div className="note-item">
-        <h3>{index + 1} - {data.title}</h3>
+        <h3>{data.title}</h3>
         <p>{data.content}</p>
-        <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={() => handleRemoveNote(data)}>Delete</button>
         <button onClick={showModal}>Update</button>
         <Modal show={data.editing} handleClose={hideModal}>
           <h3>Editing {data.title}</h3>

@@ -1,5 +1,6 @@
 import React from 'react';
 import uuid from 'uuid';
+import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 
 const emptyState = {
@@ -8,8 +9,7 @@ const emptyState = {
   id: '',
 };
 
-
-export default class NoteForm extends React.Component {
+class NoteForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.note ? this.props.note : emptyState;
@@ -31,10 +31,9 @@ export default class NoteForm extends React.Component {
   }
 
   render() {
-    const buttonText = this.props.data ? 'Update' : 'Create';
+    const buttonText = this.props.note ? 'Update' : 'Create';
     return (
       <div className="form">
-        <h1>Add a note</h1>
         <form onSubmit={this.handleSubmit}>
           <input 
             type="text"
@@ -47,7 +46,7 @@ export default class NoteForm extends React.Component {
             type="text-area"
             name="content"
             placeholder="note"
-            value={this.state.text}
+            value={this.state.content}
             onChange={this.handleChange}
           />
           <button type="submit">{buttonText}</button>
@@ -56,3 +55,10 @@ export default class NoteForm extends React.Component {
     );
   }
 }
+
+NoteForm.propTypes = {
+  note: PropTypes.object,
+  handleComplete: PropTypes.func,
+};
+
+export default NoteForm;

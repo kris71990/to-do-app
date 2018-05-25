@@ -3,7 +3,7 @@ import NoteForm from '../note-form/note-form';
 import NoteList from '../note-list/note-list';
 import autoBind from '../../utils/index';
 
-export default class Dashboard extends React.Component {
+class Dashboard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -71,3 +71,5 @@ export default class Dashboard extends React.Component {
     );
   }
 }
+
+export default Dashboard;
