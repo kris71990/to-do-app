@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import NoteForm from '../note-form/note-form';
 import NoteList from '../note-list/note-list';
 import autoBind from '../../utils/index';
+import './dashboard.scss';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <section className="dashboard">
-        <h1>To-Do Dashboard</h1>
+        <h2>Add Note</h2>
         <NoteForm
           handleComplete={this.handleAddNote} 
         />

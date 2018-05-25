@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 import Modal from '../modal/modal';
 import NoteForm from '../note-form/note-form';
+import './note-item.scss';
 
 class NoteItem extends React.Component {
   constructor(props) {
