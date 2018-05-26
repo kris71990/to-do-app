@@ -13,7 +13,7 @@ describe('Dashboard testing', () => {
 
   test('dashboard should display "To-Do Dashboard"', () => {
     const mountedDashboard = enzymeShallowMount(<Dashboard/>);
-    expect(mountedDashboard.find('h1').text()).toEqual('To-Do Dashboard');
+    expect(mountedDashboard.find('h2').text()).toEqual('Add Note');
   });
 
   test('dashboard should contain note form', () => {
